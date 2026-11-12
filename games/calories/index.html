@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calorie Size-Up — Magnifoodle</title>
+  <link rel="icon" type="image/svg+xml" href="../../logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="back"><a href="../../index.html">← All games</a><span class="date" id="dateLabel"></span></nav>
+  <header>
+    <h1>Magni<span>food</span>le</h1>
+    <p class="tagline"><b>Calorie Size-Up</b> · Size the food to match its calories.</p>
+    <p class="meta"><span class="progress" id="progress" role="img" aria-label="Round 1 of 5"><i></i><i></i><i></i><i></i><i></i></span> · Score <span id="totalScore">0</span></p>
+  </header>
+
+  <main id="game">
+    <p class="prompt" id="prompt"></p>
+
+    <svg id="stage" viewBox="0 0 800 380" role="img" aria-label="Food size comparison">
+      <line x1="0" y1="340" x2="800" y2="340" class="ground" />
+      <g id="refGroup"></g>
+      <g id="targetGroup"></g>
+      <g id="ghostGroup"></g>
+    </svg>
+
+    <div class="controls" id="controls">
+      <button id="smaller" aria-label="Make smaller">−</button>
+      <input type="range" id="sizeSlider" min="-1000" max="1000" value="0" aria-label="Target size" />
+      <button id="bigger" aria-label="Make bigger">+</button>
+    </div>
+    <p class="hint" id="hint">Drag the food to move it. Use the slider or scroll to resize. Area = calories.</p>
+
+    <button id="lockBtn" class="primary">Lock in</button>
+
+    <div id="result" class="result hidden">
+      <p id="resultText"></p>
+      <button id="nextBtn" class="primary">Next round</button>
+    </div>
+  </main>
+
+  <section id="summary" class="hidden">
+    <h2>Today's result</h2>
+    <p class="big" id="finalScore"></p>
+    <table id="summaryTable"></table>
+    <div class="share-row">
+      <button id="shareBtn" class="primary">Share</button>
+      <button id="copyBtn" class="secondary">Copy result</button>
+    </div>
+    <p class="hint" id="shareMsg"></p>
+    <p class="hint">A new set of five comes out tomorrow.</p>
+  </section>
+
+  <footer>
+    Calories are approximate per typical serving (USDA FoodData Central and brand nutrition info).
+  </footer>
+
+  <script src="foods.js"></script>
+  <script src="shapes.js"></script>
+  <script src="shapes-extra.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnifoodle — daily food games</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <header>
+    <h1><img class="logo" src="logo.svg" alt="" />Magni<span>food</span>le</h1>
+    <p class="tagline">Daily guessing games about the food you eat.</p>
+  </header>
+
+  <main class="grid" id="games"></main>
+
+  <footer>New puzzles every day. Progress is saved in this browser.</footer>
+
+  <script>
+    // To add a game: create games/<folder>/index.html and add an entry here.
+    // Set comingSoon: true to show a greyed-out placeholder card.
+    const GAMES = [
+      {
+        title: "Calorie Size-Up",
+        href: "games/calories/index.html",
+        description: "Size food by its calories.",
+        icon: "🍔",
+        color: "#e8604c",
+      },
+      {
+        title: "Calorie Climb",
+        href: "games/climb/index.html",
+        description: "Higher or lower? Keep the streak.",
+        icon: "📈",
+        color: "#2e7d32",
+      },
+      { title: "Coming soon", description: "A new food game is on the way.", comingSoon: true },
+    ];
+
+    const grid = document.getElementById("games");
+    for (const g of GAMES) {
+      const card = document.createElement(g.comingSoon ? "div" : "a");
+      card.className = "card" + (g.comingSoon ? " soon" : "");
+      if (!g.comingSoon) card.href = g.href;
+      card.style.setProperty("--accent", g.color || "#c9c1b6");
+      card.innerHTML = `
+        <div class="icon">${g.comingSoon ? "?" : g.icon}</div>
+        <h2>${g.title}</h2>
+        <p>${g.description}</p>
+        <span class="play">${g.comingSoon ? "Stay tuned" : "Play →"}</span>`;
+      grid.appendChild(card);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #faf7f2;
+  color: #2b2724;
+  text-align: center;
+}
+
+header { padding: 24px 16px 8px; }
+h1 { margin: 0 auto; font-size: 2.4rem; letter-spacing: -0.02em; max-width: 860px; padding: 0 16px; text-align: left; }  /* lines up with the game box */
+h1 span { color: #e8604c; }
+.tagline { margin: 4px 0; color: #6b625b; }
+.meta { margin: 8px 0 0; font-weight: 600; color: #4a433d; }
+
+main, #summary { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+.prompt { font-size: 1.1rem; margin: 16px 0 4px; }
+
+#stage {
+  width: 100%;
+  height: auto;
+  background: #faf7f2;
+  border: 1px solid #e6dfd5;
+  border-radius: 12px;
+  touch-action: none;
+}
+.ground { stroke: #e6dfd5; stroke-width: 2; }
+
+.food-part { stroke: rgba(0,0,0,0.22); stroke-width: 1.2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.food-name { font-weight: 700; font-size: 16px; fill: #2b2724; }
+.food-serving { font-size: 13px; fill: #6b625b; }
+.food-kcal { font-weight: 700; font-size: 15px; fill: #2b2724; }
+.ghost { opacity: 0.45; pointer-events: none; }
+
+.controls {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin: 16px auto 4px; max-width: 520px;
+}
+.controls input { flex: 1; accent-color: #e8604c; }
+.controls button {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid #d8cfc3; background: #fff; font-size: 1.3rem; cursor: pointer;
+}
+
+.hint { color: #8a8077; font-size: 0.9rem; margin: 4px 0 12px; }
+
+button.primary {
+  background: #e8604c; color: #fff; border: none; border-radius: 8px;
+  padding: 10px 28px; font-size: 1rem; font-weight: 600; cursor: pointer;
+}
+button.primary:hover { background: #d4503d; }
+
+.result { margin: 16px 0; font-size: 1.05rem; }
+.result p { margin: 0 0 12px; }
+.hidden { display: none !important; }
+
+#summary { padding-top: 16px; }
+.big { font-size: 2.2rem; font-weight: 800; margin: 4px 0 16px; }
+#summaryTable { margin: 0 auto 16px; border-collapse: collapse; text-align: left; }
+#summaryTable td, #summaryTable th { padding: 6px 12px; border-bottom: 1px solid #e6dfd5; }
+
+footer { color: #8a8077; font-size: 0.8rem; padding: 24px 16px; }
+
+.back { display: flex; justify-content: space-between; align-items: center; max-width: 860px; margin: 0 auto; padding: 12px 16px 0; }
+.back .date { color: #6b625b; font-weight: 600; }
+.back a { color: #6b625b; text-decoration: none; font-weight: 600; }
+.back a:hover { color: #e8604c; }
+
+/* Round progress: 5 bars sized to the surrounding text */
+.progress { display: inline-flex; gap: 0.2em; vertical-align: -0.05em; }
+.progress i {
+  display: inline-block; width: 0.75em; height: 0.75em;
+  border-radius: 0.15em; background: #e6dfd5;
+  box-sizing: border-box; transition: background 0.25s ease;
+}
+.progress i.current { background: transparent; box-shadow: inset 0 0 0 0.12em #e8604c; }
+.progress i.filled { background: #e8604c; }
+
+/* Draggable target food */
+#targetGroup { cursor: grab; transition: opacity 0.15s ease; }
+#stage.dragging, #stage.dragging #targetGroup { cursor: grabbing; }
+#targetGroup.overlap { opacity: 0.7; }
+#stage text { user-select: none; }
+
+/* Results: Share (primary) + Copy (secondary) */
+.share-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+button.secondary {
+  background: #fff; color: #e8604c; border: 2px solid #e8604c; border-radius: 8px;
+  padding: 8px 24px; font-size: 1rem; font-weight: 600; cursor: pointer;
+}
+button.secondary:hover { background: #fdf0ec; }

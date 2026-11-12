@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calorie Climb — Magnifoodle</title>
+  <link rel="icon" type="image/svg+xml" href="../../logo.svg" />
+  <!-- Shares the base look (header, buttons, stage) with Calorie Size-Up -->
+  <link rel="stylesheet" href="../calories/styles.css" />
+  <link rel="stylesheet" href="climb.css" />
+</head>
+<body>
+  <nav class="back"><a href="../../index.html">← All games</a><span class="date" id="dateLabel"></span></nav>
+  <header>
+    <h1>Magni<span>food</span>le</h1>
+    <p class="tagline"><b>Calorie Climb</b> · Higher or lower in calories? Keep the streak alive.</p>
+    <p class="meta">Streak <span class="streak" id="streak">0</span> · Best <span id="best">0</span></p>
+  </header>
+
+  <main id="game">
+    <p class="prompt" id="prompt"></p>
+
+    <svg id="stage" viewBox="0 0 800 380" role="img" aria-label="Current food and next food">
+      <line x1="0" y1="330" x2="800" y2="330" class="ground" />
+      <g id="curGroup"></g>
+      <g id="nextGroup"></g>
+      <text id="feedback" x="400" y="40" text-anchor="middle" class="feedback"></text>
+    </svg>
+
+    <div class="choices" id="choices">
+      <button id="lowerBtn" class="choice lower">▼ Lower</button>
+      <button id="higherBtn" class="choice higher">▲ Higher</button>
+    </div>
+    <p class="hint" id="hint">Guess from the reference food alone. Keyboard: ↑ higher, ↓ lower.</p>
+  </main>
+
+  <section id="summary" class="hidden">
+    <h2 id="summaryTitle">Run over</h2>
+    <p class="big" id="finalStreak"></p>
+    <p class="hint" id="bestLine"></p>
+    <div class="share-row">
+      <button id="shareBtn" class="primary">Share</button>
+      <button id="copyBtn" class="secondary">Copy result</button>
+    </div>
+    <p class="hint" id="shareMsg"></p>
+    <h3>Your climb</h3>
+    <table id="recap"></table>
+    <p class="hint">A new climb starts tomorrow.</p>
+  </section>
+
+  <footer>
+    Calories per typical serving, from USDA FoodData Central and restaurant nutrition info.
+  </footer>
+
+  <script src="../calories/foods.js"></script>
+  <script src="../calories/shapes.js"></script>
+  <script src="../calories/shapes-extra.js"></script>
+  <script src="climb.js"></script>
+</body>
+</html>

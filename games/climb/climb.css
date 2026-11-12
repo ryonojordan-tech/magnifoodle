@@ -1,0 +1,29 @@
+/* Calorie Climb: additions on top of ../calories/styles.css */
+
+.streak { color: #e8604c; font-weight: 800; }
+
+.feedback { font-size: 26px; font-weight: 800; }
+.feedback.right { fill: #2e7d32; }
+.feedback.wrong { fill: #c62828; }
+
+.food-kcal-big { font-size: 22px; font-weight: 800; fill: #2b2724; }
+.mystery-q { font-size: 200px; font-weight: 800; fill: #c9c1b6; }
+
+/* Revealed food grows/shrinks from the mystery size to its true calorie size */
+.grow { transition: transform 0.6s ease; }
+
+.choices { display: flex; justify-content: center; gap: 16px; margin: 18px 0 4px; }
+.choice {
+  min-width: 150px; padding: 12px 24px; font-size: 1.1rem; font-weight: 700;
+  border-radius: 10px; cursor: pointer; border: 2px solid; background: #fff;
+}
+.choice.higher { color: #2e7d32; border-color: #2e7d32; }
+.choice.higher:hover { background: #e8f5e9; }
+.choice.lower { color: #c62828; border-color: #c62828; }
+.choice.lower:hover { background: #fdecea; }
+.choice:disabled { opacity: 0.4; cursor: default; }
+
+#summary h3 { margin: 28px 0 8px; }
+#recap { margin: 0 auto 16px; border-collapse: collapse; text-align: left; }
+#recap td, #recap th { padding: 5px 12px; border-bottom: 1px solid #e6dfd5; }
+#recap td.num { text-align: right; font-variant-numeric: tabular-nums; }

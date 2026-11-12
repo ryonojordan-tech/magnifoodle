@@ -1,0 +1,59 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #faf7f2;
+  color: #2b2724;
+  text-align: center;
+}
+
+:root { --content-w: 1000px; --side: 24px; }   /* page width and side margins: change here */
+
+header { padding: 48px 0 64px; }   /* bottom = space between the title block and the game cards */
+h1 { margin: 0 auto; font-size: 3rem; letter-spacing: -0.02em; max-width: calc(var(--content-w) + 2 * var(--side)); padding: 0 var(--side); text-align: left; }  /* lines up with the cards */
+h1 span { color: #e8604c; }
+h1 .logo { height: 1.1em; width: auto; vertical-align: -0.2em; margin-right: 0.25em; }
+.tagline { margin: 8px auto 0; color: #6b625b; font-size: 1.1rem; max-width: calc(var(--content-w) + 2 * var(--side)); padding: 0 var(--side) 0 calc(var(--side) + 4.05rem); text-align: left; }  /* starts under "Magnifoodle": logo 1.1em + gap 0.25em, at the 3rem title size */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: calc(var(--content-w) + 2 * var(--side));
+  margin: 0 auto;
+  padding: 0 var(--side);
+}
+
+.card {
+  display: flex; flex-direction: column; align-items: center;
+  background: #fff;
+  border: 1px solid #e6dfd5;
+  border-top: 6px solid var(--accent);
+  border-radius: 14px;
+  padding: 24px 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+a.card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); }
+
+.icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 2rem; font-weight: 700;
+  background: #faf7f2;
+}
+.card h2 { margin: 14px 0 6px; font-size: 1.25rem; }
+.card p { margin: 0 0 18px; color: #6b625b; line-height: 1.4; flex: 1; }
+
+.play {
+  background: var(--accent); color: #fff;
+  border-radius: 8px; padding: 8px 22px; font-weight: 600;
+}
+
+.card.soon { opacity: 0.55; border-style: dashed; border-top-style: solid; }
+.card.soon .icon { color: #b3aa9f; }
+.card.soon .play { background: #d8d0c5; }
+
+footer { color: #8a8077; font-size: 0.85rem; padding: 40px 16px; }

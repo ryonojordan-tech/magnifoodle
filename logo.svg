@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Magnifoodle">
+  <!-- Magnifoodle logo: magnifying glass with an apple in the lens. Site palette only. -->
+  <line x1="41" y1="41" x2="57" y2="57" stroke="#2b2724" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="27" cy="27" r="21" fill="#faf7f2" stroke="#2b2724" stroke-width="6"/>
+  <g transform="translate(14.5 12.5) scale(0.25)">
+    <path d="M52 30 Q54 18 62 10" fill="none" stroke="#2b2724" stroke-width="8" stroke-linecap="round"/>
+    <path d="M58 20 Q74 4 90 12 Q76 28 58 20 Z" fill="#2b2724"/>
+    <path d="M50 32 C20 16 0 42 7 68 C14 96 36 104 50 95 C64 104 86 96 93 68 C100 42 80 16 50 32 Z" fill="#e8604c"/>
+  </g>
+</svg>
